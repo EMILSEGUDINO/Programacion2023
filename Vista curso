@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+<Div> Cursos </Div>
     <h1>Cursos Disponibles</h1>
     <ul>
         {% for curso in cursos %}
@@ -35,5 +36,42 @@
             </div>
         {% endfor %}
     </ul>
+<Div> venta</Div>
+    
+<h1>Carrito de Compras</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Curso</th>
+                <th>Duración (meses)</th>
+                <th>Costo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for curso in cursos_en_carrito %}
+                <tr>
+                    <td>{{ curso.Phyton }}</td>
+                    <td>{{ curso.duracion_meses }}</td>
+                    <td>${{ curso.costo }}</td>
+                    <td>
+                        <a href="/eliminar-curso/{{ curso.id }}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>Total a Pagar: $5000{{ total_a_pagar }}</p>
+    <form method="POST" action="/procesar-compra">
+        <label for="medio_pago">Seleccionar Medio de Pago:</label>
+        <select name="medio_pago" id="medio_pago">
+            <option value="tarjeta_credito">Tarjeta de Crédito/Débito</option>
+            <option value="transferencia_bancaria">Transferencia Bancaria</option>
+        </select>
+        <button type="submit">Confirmar Compra</button>
+    </form>
+</body>
+</html>
+
 </body>
 </html>
