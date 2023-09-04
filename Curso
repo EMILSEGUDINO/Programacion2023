@@ -1,0 +1,29 @@
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+# Definir algunas instancias de clases para ejemplificar
+class Curso:
+    def __init__(self, titulo, costo):
+        self.titulo = titulo
+        self.costo = costo
+
+curso1 = Curso("Curso de Python", 100)
+curso2 = Curso("Curso de Web Development", 150)
+
+class UsuarioFinal:
+    def __init__(self, nombre, apellido):
+        self.nombre = nombre
+        self.apellido = apellido
+
+usuario1 = UsuarioFinal("John", "Doe")
+usuario2 = UsuarioFinal("Jane", "Smith")
+
+@app.route('/')
+def index():
+    cursos = [curso1, curso2]
+    usuarios = [usuario1, usuario2]
+    return render_template('index.html', cursos=cursos, usuarios=usuarios)
+
+if __name__ == '__main__':
+    app.run(debug=True)
