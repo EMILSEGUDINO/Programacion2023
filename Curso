@@ -2,7 +2,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Definir algunas instancias de clases para ejemplificar
+# Definir clases
 class Curso:
     def __init__(self, titulo, costo):
         self.titulo = titulo
