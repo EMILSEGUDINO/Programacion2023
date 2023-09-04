@@ -16,10 +16,10 @@ from traceback import print_stack
 }
 
 #DIAS DE LA SEMANA------------------
-
+{
 Sem1 = input("Ingrese un dìa de la semana: ")
 
-{if Sem1== "Lunes" 
+if Sem1== "Lunes" 
     print("Lunes maravilloso")
 elif Sem1== "viernes"
     print("Ultimo dìa de trabajo, wiiii")
