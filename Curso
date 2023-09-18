@@ -1,21 +1,55 @@
 
 
 # Definir clases
-class Curso:
-    def __init__(self, titulo, costo):
-        self.titulo = titulo
-        self.costo = costo
+from flask import Flask, render_template
 
-curso1 = Curso("Curso de Python", 100)
-curso2 = Curso("Curso de Web Development", 150)
+app = Flask(__name__)
 
-class UsuarioFinal:
-    def __init__(self, nombre, apellido):
-        self.nombre = nombre
-        self.apellido = apellido
+# Datos cursos
+cursos = [
+    {
+        "titulo": "Curso de Carpintería",
+        "descripcion": "Aprende las técnicas básicas de carpintería.",
+        "objetivos": "Dominar las herramientas de carpintería y construir muebles.",
+        "costo": 5000,
+        "duracion_meses": 5,
+        "categoria": "Inicial",
+        "estado": "NO Disponible",
+        "clases": [
+            {"fecha": "2023-10-01", "titulo": "Introducción a la carpintería", "contenido": "..."},
+            {"fecha": "2023-10-08", "titulo": "Herramientas básicas", "contenido": "...", "url_drive": ""},
+       
+        "titulo": "Curso Phython",
+        "descripcion": "Aprende las técnicas básicas de Phyton.",
+        "objetivos": "Comprender Phyton. Generar un entorno en Phyton"
+        "duracion_meses": 3,
+        "categoria": "Avanzado",
+        "estado": "Disponible",
+        "clases": [
+            {"fecha": "2023-10-01", "titulo": "Introducción a la carpintería", "contenido": "..."},
+            {"fecha": "2023-10-08", "titulo": "Herramientas básicas", "contenido": "...", "url_drive": "https://drive.google.com/..."},
+    
+        "titulo": "Web developed",
+        "descripcion": "Dominar tecnicas basicas de Web delovepent",
+        "objetivos": "Construir paginas web.",
+        "costo": 20000,
+        "duracion_meses": 3,
+        "categoria": "Intermedio",
+        "estado": "Disponible",
+        "clases": [
+            {"fecha": "2023-10-01", "titulo": "Introducción a la carpintería", "contenido": "..."},
+            {"fecha": "2023-10-08", "titulo": "Herramientas básicas", "contenido": "...", "url_drive": ""},
+        ]
+    },
+    
+@app.route('/')
+def listar_cursos():
+    cursos_disponibles = [curso for curso in cursos if curso['estado'] == 'Disponible']
+    return render_template('cursos.html', cursos=cursos_disponibles)
 
-usuario1 = UsuarioFinal("John", "Doe")
-usuario2 = UsuarioFinal("Jane", "Smith")
+if __name__ == '__main__':
+    app.run(debug=True)
+
 
 @app.route('/')
 def index():
@@ -25,3 +59,43 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+import smtplib
+from  import 
+from  import 
+
+def enviar_correo(destinatario, asunto, mensaje):
+    # Configuración del servidor 
+    smtp_server = ""
+    puerto = 587  # Puerto típico para TLS
+
+    # Información de autenticación
+    remitente = ""
+    contraseña = ""
+
+    # Crear el objeto del mensaje
+    msg = MIMEMultipart()
+    msg["From"] = remitente
+    msg["To"] = destinatario
+    msg["Subject"] = asunto
+
+    # Agregar el mensaje al cuerpo del correo
+    msg.attach(MIMEText(mensaje, "plain"))
+
+    # Iniciar una conexión segura al servidor SMTP
+    try:
+        server = (smtp_server, puerto)
+        server.starttls()
+        server.login(remitente, contraseña)
+
+        # Enviar el correo electrónico
+        server.sendmail(remitente, destinatario, msg.as_string())
+
+        # Cerrar la conexión al servidor 
+        server.quit()
+
+        print("Correo electrónico enviado con éxito.")
+    except Exception as e:
+        print("Error al enviar el correo electrónico:", str(e))
+
+
