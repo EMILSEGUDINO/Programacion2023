@@ -28,3 +28,26 @@ class Profesor(Usuario):
     def __str__(self):
         return f"Profesor - {super().__str__()}, Nombre: {self.nombre}, Apellido: {self.apellido}, DNI: {self.dni}, Curso que dicta: {self.curso_que_dicta}"
 
+# Herencia de Medios de Contacto
+class MediosDeContacto:
+    def __init__(self, fecha, email, telefono, direccion, nombre):
+        self.fecha = fecha
+        self.email = email
+        self.telefono = telefono
+        self.direccion = direccion
+        self.nombre = nombre
+
+# Tipos de Medio de Contacto que hereda de Medios de Contacto
+class TiposDeMedioDeContacto(MediosDeContacto):
+    def __init__(self, fecha, email, telefono, direccion, nombre, tipo):
+        super().__init__(fecha, email, telefono, direccion, nombre)
+        self.tipo = tipo
+
+
+print(f"Tipo de Medio de Contacto: {medio_de_contacto.tipo}")
+print(f"Fecha: {medio_de_contacto.fecha}")
+print(f"Email: {medio_de_contacto.email}")
+print(f"Teléfono: {medio_de_contacto.telefono}")
+print(f"Dirección: {medio_de_contacto.direccion}")
+print(f"Nombre: {medio_de_contacto.nombre}")
+
