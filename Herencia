@@ -1,0 +1,30 @@
+# Clase Usuario
+class Usuario:
+    def __init__(self, id, username, password, role, estado):
+        self.id = id
+        self.username = username
+        self.password = password
+        self.role = role
+        self.estado = estado
+
+    def __str__(self):
+        return f"ID: {self.id}, Username: {self.username}, Role: {self.role}, Estado: {self.estado}"
+
+class Profesor(Usuario):
+    def __init__(self, id, username, password, estado, nombre, apellido, dni, fecha_nacimiento, direccion, localidad, codigo_postal, provincia, telefono_celular, email, curso_que_dicta):
+        super().__init__(id, username, password, 'Docente', estado)
+        self.nombre = nombre
+        self.apellido = apellido
+        self.dni = dni
+        self.fecha_nacimiento = fecha_nacimiento
+        self.direccion = direccion
+        self.localidad = localidad
+        self.codigo_postal = codigo_postal
+        self.provincia = provincia
+        self.telefono_celular = telefono_celular
+        self.email = email
+        self.curso_que_dicta = curso_que_dicta
+
+    def __str__(self):
+        return f"Profesor - {super().__str__()}, Nombre: {self.nombre}, Apellido: {self.apellido}, DNI: {self.dni}, Curso que dicta: {self.curso_que_dicta}"
+
