@@ -48,42 +48,66 @@
             </div>
         {% endfor %}
     </ul>
-<Div> venta</Div>
-    
-<h1>Carrito de Compras</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Curso</th>
-                <th>Duración (meses)</th>
-                <th>Costo</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for curso in cursos_en_carrito %}
-                <tr>
-                    <td>{{ curso.Phyton }}</td>
-                    <td>{{ curso.duracion_meses }}</td>
-                    <td>${{ curso.costo }}</td>
-                    <td>
-                        <a href="/eliminar-curso/{{ curso.id }}">Eliminar</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <p>Total a Pagar: $5000{{ total_a_pagar }}</p>
-    <form method="POST" action="/procesar-compra">
-        <label for="medio_pago">Seleccionar Medio de Pago:</label>
-        <select name="medio_pago" id="medio_pago">
-            <option value="tarjeta_credito">Tarjeta de Crédito/Débito</option>
-            <option value="transferencia_bancaria">Transferencia Bancaria</option>
-        </select>
-        <button type="submit">Confirmar Compra</button>
+<Div> Ventas</Div>
+
+    <h1>Formulario de Compra</h1>
+    <form action="/procesar_compra" method="POST">
+        <label for="id_compra">ID de Compra:</label>
+        <input type="text" name="id_compra" id="id_compra" required><br>
+
+        <label for="id_carrito_compra">ID de Carrito de Compra:</label>
+        <input type="text" name="id_carrito_compra" id="id_carrito_compra" required><br>
+
+        <label for="id_medios_pago">ID de Medios de Pago:</label>
+        <input type="text" name="id_medios_pago" id="id_medios_pago" required><br>
+
+        <label for="id_usuario">ID de Usuario:</label>
+        <input type="text" name="id_usuario" id="id_usuario" required><br>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" id="fecha" required><br>
+
+        <label for="monto_total">Monto Total:</label>
+        <input type="text" name="monto_total" id="monto_total" required><br>
+
+        <input type="submit" value="Guardar Compra">
     </form>
-</body>
-</html>
+
+    <h1>Formulario de Medio de Contacto</h1>
+    <form action="/procesar_medio_contacto" method="POST">
+        <label for="id_medio_contacto">ID de Medio de Contacto:</label>
+        <input type="text" name="id_medio_contacto" id="id_medio_contacto" required><br>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" id="fecha" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" name="telefono" id="telefono" required><br>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" name="direccion" id="direccion" required><br>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required><br>
+
+        <input type="submit" value="Guardar Medio de Contacto">
+    </form>
+
+    <h1>Tipo Medio de Contacto</h1>
+    <form action="/procesar_medio_contacto" method="POST">
+        <label for="tipo_medio_contacto">Tipo de Medio de Contacto:</label>
+        <select name="tipo_medio_contacto" id="tipo_medio_contacto">
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Correo electrónico">Correo electrónico</option>
+            <option value="Call center">Call center</option>
+            <option value="Referido interno">Referido interno</option>
+        </select><br>
+        <input type="submit" value="Guardar Medio de Contacto">
+    </form>
+
 
 </body>
 </html>
