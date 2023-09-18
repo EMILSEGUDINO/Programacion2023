@@ -10,6 +10,18 @@
     <h1>Cursos Disponibles</h1>
     <ul>
         {% for curso in cursos %}
+<div class="curso Carpinteria">
+                <img src="{{ }}" alt="{{ curso.titulo }}">
+                <h2>{{ Curso Web developement }}</h2>
+                <p><strong>Fecha de Comienzo: 04-09-2023</strong> {{ curso.fecha_comienzo }}</p>
+                <p><strong>Descripción:Curso básico inicial.</strong> {{ curso.descripcion }}</p>
+                <p><strong>Objetivos: .</strong> {{ curso.objetivos }}</p>
+                <p><strong>Programa:No disponible</strong> {{ curso.programa }}</p>
+                <p><strong>Costo: $4000 por mes</strong> ${{ curso.costo }}</p>
+                <p><strong>Duración 5 (meses):</strong> {{ curso.duracion_meses }}</p>
+                <p><strong>Estado:Disponible</strong> {{ curso.estado }}</p>
+                <p><strong>Categoría:Informática</strong> {{ curso.categoria }}</p>
+            </div>
             <div class="curso Phyton">
                 <img src="{{ }}" alt="{{ curso.titulo }}">
                 <h2>{{ Curso Phython }}</h2>
@@ -27,7 +39,7 @@
                 <h2>{{ Curso Web developement }}</h2>
                 <p><strong>Fecha de Comienzo: 04-09-2013</strong> {{ curso.fecha_comienzo }}</p>
                 <p><strong>Descripción:Curso básico inicial.</strong> {{ curso.descripcion }}</p>
-                <p><strong>Objetivos: comprender los fundamentos de la programación. Generar un entorno en Phyton.</strong> {{ curso.objetivos }}</p>
+                <p><strong>Objetivos: comprender los fundamentos de la programación. .</strong> {{ curso.objetivos }}</p>
                 <p><strong>Programa:No disponible</strong> {{ curso.programa }}</p>
                 <p><strong>Costo: $4000 por mes</strong> ${{ curso.costo }}</p>
                 <p><strong>Duración 5 (meses):</strong> {{ curso.duracion_meses }}</p>
